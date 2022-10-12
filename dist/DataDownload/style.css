@@ -1,0 +1,258 @@
+body {
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  margin: 0 !important;
+}
+
+fieldset,
+label {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0;
+}
+
+select,
+input {
+  width: 100%;
+}
+
+select {
+  background-image: url("https://www.acpt.unum.com/-/media/Main/Images/Unum/Landing%20Pages/Mass%20GIC/arrow-down-blue") !important;
+  padding: 0 0 0 1.2rem !important;
+  transition: background-image 0.2s linear;
+}
+
+input {
+  color: #2e2e2e !important;
+  padding: 0 !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+.gic__form-helper {
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.85;
+  margin: 0.4rem 0 0 0;
+}
+
+.gic__form-money-input {
+  width: 100%;
+}
+
+.gic__input-radio-option {
+  display: flex;
+  align-items: center;
+  margin-top: 0.8rem;
+  padding-right: 6.4rem;
+}
+
+.gic__form-label {
+  font-size: 1.8rem;
+  line-height: 1.56;
+  color: #2e2e2e;
+}
+
+.gic__button {
+  width: 100%;
+  background-color: #fac832 !important;
+  color: #004e98 !important;
+}
+
+.gic__button:hover {
+  background-color: #fad375 !important;
+  color: #004470 !important;
+}
+
+input[type=radio] {
+  border-radius: 50% !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+}
+
+input[type=radio]:checked {
+  background-image: radial-gradient(circle, #015294, #015294 60%, #fff 65%) !important;
+  border-color: #015294;
+}
+
+.gic__form-radio-label {
+  font-size: 1.6rem;
+}
+
+.gic__form-item {
+  width: 100%;
+  max-width: 462px;
+}
+
+.gic__form-item:not(:first-of-type) {
+  margin-top: 3.2rem;
+}
+
+.gic__radio-wrapper {
+  display: flex;
+}
+
+.gic {
+  background-color: white;
+  font-size: 1.4rem;
+  line-height: 1.56;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) {
+  .gic {
+    flex-direction: row;
+  }
+}
+
+.gic__form {
+  padding: 2.4rem;
+}
+@media only screen and (min-width: 1024px) {
+  .gic__form {
+    padding: 9.8rem;
+  }
+}
+
+.gic__results {
+  padding: 9.8rem;
+  text-align: center;
+}
+
+.results {
+  color: #fac832;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.67;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+.gic__results-suggested, .gic__results-cost {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.gic__results-suggested p:first-child {
+  margin-top: 6.4rem;
+}
+
+.currency-field {
+  color: #fac832;
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.secondary {
+  font-size: 2.4rem;
+}
+
+.gic__results h3 {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.gic__results-cost {
+  margin-top: 6.4rem;
+}
+
+a,
+a:visited {
+  color: #f2f2f2;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inline-block;
+}
+
+.gic__results-actions {
+  margin-top: 8rem;
+}
+
+.currency-field:before {
+  content: "$";
+}
+
+.gic__input {
+  line-height: 1.71;
+  padding-left: 1.2rem !important;
+}
+
+.gic__form-money-input {
+  display: inline-block;
+  position: relative;
+}
+.gic__form-money-input:before {
+  content: "$";
+  position: absolute;
+  left: 1.6rem;
+  transform: translate(-50%, 85%);
+}
+.gic__form-money-input input {
+  padding-left: 2rem !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.gic__form {
+  flex-basis: 60%;
+}
+
+.gic__results {
+  flex-basis: 40%;
+  background-color: #015294;
+  color: #f2f2f2;
+}
+
+.gic__results-field {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gic__terms {
+  margin-top: 12.8rem;
+  text-align: left;
+  line-height: 1.71;
+}
+
+.gic__reset {
+  margin-top: 3.2rem;
+}
+
+.gic__reset-action {
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.gic__reset-action:hover {
+  text-decoration: none;
+}
+
+.gic__reset {
+  display: flex;
+  justify-content: flex-end;
+}

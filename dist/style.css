@@ -1,6 +1,6 @@
 body {
   font-family: "Montserrat", sans-serif;
-  background: #f7edd5;
+  background: #cfdbe1;
 }
 
 .container {
@@ -125,6 +125,15 @@ section#formHolder {
   transform: translateY(0);
   opacity: 1;
 }
+.center
+{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #FFFF00;
+  padding: 10px;
+}
 
 .form {
   position: relative;
@@ -211,7 +220,7 @@ section#formHolder {
   display: none;
 }
 .form form input[type=password] {
-  color: #f95959;
+  color: #4baee0;
 }
 .form form .CTA {
   margin-top: 30px;
@@ -220,7 +229,7 @@ section#formHolder {
   font-size: 12px;
   text-transform: uppercase;
   padding: 5px 30px;
-  background: #f95959;
+  background: #4baee0;
   color: #fff;
   border-radius: 30px;
   margin-right: 20px;
@@ -246,7 +255,7 @@ footer p {
   color: #777;
 }
 footer p a, footer p a:focus {
-  color: #b8b09f;
+  color: #5b91ba;
   transition: all 0.3s;
   text-decoration: none !important;
 }
@@ -312,4 +321,68 @@ footer p a:hover, footer p a:focus:hover {
   h2 {
     font-size: 50px !important;
   }
+}
+
+/*nav bar */
+
+#navigation-container {
+  position: relative;
+  background-color: #352d2f;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Download button */
+
+.download {
+  width: 280px;
+  text-decoration: black;
+  background-color: DodgerBlue;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: black;
+}
+.download:hover {
+  background-color: RoyalBlue;
+  color: white;
+}
+.download:active {
+  background-color: RoyalBlue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+/* back button */
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
 }
