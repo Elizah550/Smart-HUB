@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+    {% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="robots" content="noindex,nofollow">
+    <title>Curescience Dashboard</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/SD-Circle-Logo-2Color.jpg' %}">
+    <!-- Custom CSS -->
+    <link href="{%static 'plugins/bower_components/chartist/dist/chartist.min.css' %}" rel="stylesheet'>
+    <link rel="stylesheet" href="{%static 'plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css' %}">
+    <!-- Custom CSS -->
+    <link href="{%static 'css/style.min.css' %}" rel="stylesheet">
+    <style>
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 2; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            top: 20%;
+            width: 40%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float:inline-end;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        
+        .tr {cursor: pointer;}
+
+        .ajax-btn:hover {
+            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+            cursor: pointer;
+        }
+
+        .ajax-btn2:hover {
+            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25));
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader" >
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="#" style="background-color: #00ADC6;">
+                        <!-- Logo icon -->
+                        
+                            <!-- Dark Logo icon -->
+                            
+                        
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span>
+                            <!-- dark Logo text -->
+                            <img src="{% static 'images/curescience.png' %}" style="height: 95%; width: 95%;" alt="homepage" />
+                        </span>
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5"style="background-color: #25215E;">
+                    <ul class="navbar-nav d-none d-md-block d-lg-none"  >
+                        <li class="nav-item">
+                            <a class="nav-toggler nav-link waves-effect waves-light text-white"
+                                href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav d-flex align-items-center" style="background-color: #25215E;margin:auto">
+
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <!-- <li class=" in">
+                            <form role="search" class="app-search d-none d-md-block mr-3">
+                                <input type="text" placeholder="Search..." class="form-control mt-0">
+                                <a href="" class="active">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                            </form>
+                        </li> -->
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <span class="text-white font-medium" style="font-size: large;">Appomics&trade;</span>
+                        
+                        <!-- TO BE FIXED --------------------------------------------------------------- -->
+                        <a class="profile-pic" href="#" >
+                            <!-- <span class="text-white font-medium" style="float: right;white-space: nowrap;">Logged In as {{username}}</span></a> -->
+                        
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6" style="background-color: #00ADC6;">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar" >
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav" >
+                    <ul id="sidebarnav" style="background-color: #00ADC6;">
+                        <!-- User Profile-->
+                        <li class="sidebar-item pt-2">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link"  href="#"
+                                aria-expanded="false">
+                                <i class="far fa-calendar-alt" style="color: white;" aria-hidden="true"></i>
+                                <span class="hide-menu" style="color: white;">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'intradaypage' %}"
+                                aria-expanded="false">
+                                <i class="far fa-clock" style="color: white;" aria-hidden="true"></i>
+                                <span class="hide-menu" style="color: white;" >Intraday</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'profile' %}"
+                                aria-expanded="false">
+                                <i class="fa fa-user" style="color: white;" aria-hidden="true"></i>
+                                <span class="hide-menu" style="color: white;" >Profile</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'logout' %}"
+                                aria-expanded="false">
+                                <i class="fa fa-power-off" style="color: white;" aria-hidden="true"></i>
+                                <span class="hide-menu" style="color: white;" >Logout</span>
+                            </a>
+                        </li>
+                        
+                        
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title text-uppercase font-medium font-14">Dashboard</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <div class="d-md-flex">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Three charts -->
+                <!-- ============================================================== -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-7"> 
+                        <div class="row">   
+                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                                <div class="white-box analytics-info ajax-btn" name="Steps" style="background-color: teal;" id="opch">
+                                    <h3 class="box-title" style="color: white;">Steps Today</h3>
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <!-- <i class="fa fa-check-circle" style="color: white;font-size: 3em;" aria-hidden="true"></i> -->
+                                            <img style="width: 5em;height: 5em;" src="{% static 'images/running-shoes.png' %}" alt="steps">
+                                            
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{steps_today}}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                                <div class="white-box analytics-info ajax-btn" name="Calories" style="background-color: #00ADC6;">
+                                    <h3 class="box-title" style="color: white;">Calories Burnt</h3>
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <div id="ml-auto">
+                                                <img style="width: 5em;height: 5em;"  src="{% static 'images/calories.png' %}" alt="heartrate">
+                                            </div>
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{calories_today}}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                                <div class="white-box analytics-info ajax-btn" name="Minutes Asleep" style="background-color: #25215E;">
+                                    <h3 class="box-title" style="color: white;" >Minutes Asleep</h3>
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <div id="ml-auto">
+                                                <img style="width: 5em;height: 5em;" src="{% static 'images/sleep.png' %}" alt="sleep">
+                                            </div>
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{sleep_today}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row">
+                            
+                            <div class="col-lg-6 col-sm-6 col-xs-12" style="position: relative;">
+                                
+                                
+                                <div class="white-box analytics-info ajax-btn" name="Resting HeartRate" style="background-color: #00ADC6;">
+                                    <h3 class="box-title" style="color: white;" >Resting HeartRate</h3>    
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <div id="ml-auto">
+                                                <img style="width: 5em;height: 5em;" src="{% static 'images/heartrate.png' %}" alt="calories">
+                                            </div>
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{heart_today}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-sm-6 col-xs-12" style="position: relative;">
+                                
+                                <div class="white-box analytics-info ajax-btn" name="Elevation" style="background-color: teal;">
+                                    <h3 class="box-title" style="color: white;" >Elevation</h3>
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <div id="ml-auto">
+                                                <img style="width: 5em;height: 5em;" src="{% static 'images/floors.png' %}" alt="floors">
+                                            </div>
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{floors_today}}m</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close"></span>
+                        <p id = "map">Some text in the Modal..</p>
+                    </div>
+                  
+                </div>
+                  
+                <!-- ============================================================== -->
+                <!-- PRODUCTS YEARLY SALES -->
+                <!-- ============================================================== -->
+                <!-- <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Products Yearly Sales</h3>
+                            <div class="d-md-flex">
+                                <ul class="list-inline d-flex ml-auto">
+                                    <li class="pl-3">
+                                        <h5><i class="fa fa-circle m-r-5 text-info"></i>Mac</h5>
+                                    </li>
+                                    <li class="pl-3">
+                                        <h5><i class="fa fa-circle m-r-5 text-inverse"></i>Windows</h5>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="ct-visits" style="height: 405px;">
+                                <div class="chartist-tooltip" style="top: -17px; left: -12px;"><span
+                                        class="chartist-tooltip-value">6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- ============================================================== -->
+                <!-- RECENT SALES -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6" >
+                        <div class="white-box" style="background-color: teal;color: white;">
+                            <div class="d-md-flex mb-3">
+                                <h3 class="box-title mb-0" id="Chart1Title">Steps</h3>
+                            </div>
+                            <canvas id="myChart1" style="background-color: teal;"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-6 col-sm-6" >
+                        <div class="white-box" style="background-color: #25215E;color: white;">
+                            <div class="d-md-flex mb-3">
+                                <h3 class="box-title mb-0" id="Chart2Title">Resting HeartRate</h3>
+                            </div>
+                            <canvas id="myChart" style="background-color: #25215E;"></canvas>
+                        </div>
+                    </div>  
+                </div>    
+            </div>
+            
+            
+            <!-- OURA RING DATA ----------------------------------------------------------------------------------- -->
+            <div class="page-breadcrumb bg-white">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title text-uppercase font-medium font-14">OURARING Dashboard</h4>
+                    </div>
+                    <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                        <div class="d-md-flex">
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Three charts -->
+                <!-- ============================================================== -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-7"> 
+                        <div class="row">   
+                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                                <div class="white-box analytics-info ajax-btn2" name="Steps" style="background-color: teal;" id="opch">
+                                    <h3 class="box-title" style="color: white;">Steps Today</h3>
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <!-- <i class="fa fa-check-circle" style="color: white;font-size: 3em;" aria-hidden="true"></i> -->
+                                            <img style="width: 5em;height: 5em;" src="{% static 'images/running-shoes.png' %}" alt="steps">
+                                            
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{oura_steps_today}}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                                <div class="white-box analytics-info ajax-btn2" name="Calories" style="background-color: #00ADC6;">
+                                    <h3 class="box-title" style="color: white;">Calories Burnt</h3>
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <div id="ml-auto">
+                                                <img style="width: 5em;height: 5em;"  src="{% static 'images/calories.png' %}" alt="heartrate">
+                                            </div>
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{oura_calories_today}}</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                                <div class="white-box analytics-info ajax-btn2" name="Minutes Asleep" style="background-color: #25215E;">
+                                    <h3 class="box-title" style="color: white;" >Minutes Asleep</h3>
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <div id="ml-auto">
+                                                <img style="width: 5em;height: 5em;" src="{% static 'images/sleep.png' %}" alt="sleep">
+                                            </div>
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{oura_sleep_today}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="row">
+                            
+                            <div class="col-lg-6 col-sm-6 col-xs-12" style="position: relative;">
+                                
+                                
+                                <div class="white-box analytics-info ajax-btn2" name="Resting HeartRate" style="background-color: #00ADC6;">
+                                    <h3 class="box-title" style="color: white;" >Resting HeartRate</h3>    
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <div id="ml-auto">
+                                                <img style="width: 5em;height: 5em;" src="{% static 'images/heartrate.png' %}" alt="calories">
+                                            </div>
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{oura_hr_today}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6 col-sm-6 col-xs-12" style="position: relative;">
+                                
+                                <div class="white-box analytics-info ajax-btn2" name="MET" style="background-color: teal;">
+                                    <h3 class="box-title" style="color: white;" >MET</h3>
+                                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                                        <li>
+                                            <div id="ml-auto">
+                                                <img style="width: 5em;height: 5em;" src="{% static 'images/floors.png' %}" alt="floors">
+                                            </div>
+                                        </li>
+                                        <li class="ml-auto"><span class="counter" style="color: white;font-size:3em">{{oura_met_today}}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close"></span>
+                        <p id = "map">Some text in the Modal..</p>
+                    </div>
+                  
+                </div>
+                  
+                <!-- ============================================================== -->
+                <!-- PRODUCTS YEARLY SALES -->
+                <!-- ============================================================== -->
+                <!-- <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div class="white-box">
+                            <h3 class="box-title">Products Yearly Sales</h3>
+                            <div class="d-md-flex">
+                                <ul class="list-inline d-flex ml-auto">
+                                    <li class="pl-3">
+                                        <h5><i class="fa fa-circle m-r-5 text-info"></i>Mac</h5>
+                                    </li>
+                                    <li class="pl-3">
+                                        <h5><i class="fa fa-circle m-r-5 text-inverse"></i>Windows</h5>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="ct-visits" style="height: 405px;">
+                                <div class="chartist-tooltip" style="top: -17px; left: -12px;"><span
+                                        class="chartist-tooltip-value">6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- ============================================================== -->
+                <!-- RECENT SALES -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-6 col-sm-6" >
+                        <div class="white-box" style="background-color: teal;color: white;">
+                            <div class="d-md-flex mb-3">
+                                <h3 class="box-title mb-0" id="OuraChart1Title">Resting HeartRate</h3>
+                            </div>
+                            <canvas id="OuramyChart1" style="background-color: teal;"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 col-lg-6 col-sm-6" >
+                        <div class="white-box" style="background-color: #25215E;color: white;">
+                            <div class="d-md-flex mb-3">
+                                <h3 class="box-title mb-0" id="OuraChart2Title">Steps</h3>
+                            </div>
+                            <canvas id="OuramyChart2" style="background-color: #25215E;"></canvas>
+                        </div>
+                    </div>  
+                </div>    
+            </div>
+            
+              
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center"> All Rights Reserved by Curescience 
+            </footer>
+
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src='{% static "plugins/bower_components/jquery/dist/jquery.min.js" %}'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src='{% static "plugins/bower_components/popper.js/dist/umd/popper.min.js" %}'></script>
+    <script src='{% static "bootstrap/dist/js/bootstrap.min.js" %}'></script>
+    <script src='{% static "js/app-style-switcher.js" %}'></script>
+    <script src='{% static "plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js" %}'></script>
+    <!--Wave Effects -->
+    <script src='{% static "js/waves.js" %}'></script>
+    <!--Menu sidebar -->
+    <script src='{% static "js/sidebarmenu.js" %}'></script>
+    <!--Custom JavaScript -->
+    <script src='{% static "js/custom.js" %}'></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+    <script>
+
+           
+    </script>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var chartselect = 0
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        var help = document.getElementsByClassName("help")[0];
+        
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var data1 = {{ heart_dates|safe }};
+        var data2 = {{ heart_values|safe }};
+        Chart.defaults.global.defaultFontColor = 'white';
+        Chart.defaults.global.legend.display = false;
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data1,
+                datasets: [{
+                    label: 'Resting HeartRate',
+                    data: data2,
+                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                    borderColor: 'rgba(255, 255, 255, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        gridLines: { color: "#aaaaaa",
+                        drawOnChartArea: false },
+                        display: true,
+                        ticks: {
+                            beginAtZero: true,
+                            min: 0,
+                        }
+                    }],
+                    xAxes: [{
+                            gridLines: {
+                                color: "#aaaaaa", drawOnChartArea: false 
+                            },
+                            ticks: {
+                                maxTicksLimit: 10,
+                            }
+                        }],
+                },
+            }
+        });
+
+        var ctx2 = document.getElementById('myChart1').getContext('2d');
+        var dat1 = {{ step_dates|safe }};
+        var dat2 = {{ step_values|safe }};
+        Chart.defaults.global.defaultFontColor = 'white';
+        
+        var myChart1 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: dat1,
+                datasets: [{
+                    label: 'Steps',
+                    data: dat2,
+                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                    borderColor: 'rgba(255, 255, 255, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        gridLines: { color: "#aaaaaa",drawOnChartArea: false },
+                        display: true,
+                        ticks: {
+                            beginAtZero: true,
+                            min: 0,
+                        }
+                    }],
+                    xAxes: [{
+                            gridLines: {
+                                color: "#aaaaaa" ,drawOnChartArea: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 10,
+                            }
+                        }],
+                },
+            }
+        });
+        
+        // OURA CHARTS -----------------------------------------------------------------
+
+        var ctx3 = document.getElementById('OuramyChart1').getContext('2d');
+        var ouradata1 = {{ oura_hr_dates|safe }};
+        var ouradata2 = {{ oura_hr_values|safe }};
+        Chart.defaults.global.defaultFontColor = 'white';
+        Chart.defaults.global.legend.display = false;
+        var myChart3 = new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: ouradata1,
+                datasets: [{
+                    label: 'Resting HeartRate',
+                    data: ouradata2,
+                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                    borderColor: 'rgba(255, 255, 255, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        gridLines: { color: "#aaaaaa",drawOnChartArea: false },
+                        display: true,
+                        ticks: {
+                            beginAtZero: true,
+                            min: 0,
+                        }
+                    }],
+                    xAxes: [{
+                            gridLines: {
+                                color: "#aaaaaa" ,drawOnChartArea: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 10,
+                            }
+                        }],
+                },
+            }
+        });
+
+        var ctx4 = document.getElementById('OuramyChart2').getContext('2d');
+        var ouradat1 = {{ oura_steps_dates|safe }};
+        var ouradat2 = {{ oura_steps_values|safe }};
+        Chart.defaults.global.defaultFontColor = 'white';
+        
+        var myChart4 = new Chart(ctx4, {
+            type: 'bar',
+            data: {
+                labels: ouradat1,
+                datasets: [{
+                    label: 'Steps',
+                    data: ouradat2,
+                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                    borderColor: 'rgba(255, 255, 255, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        gridLines: { color: "#aaaaaa",drawOnChartArea: false },
+                        display: true,
+                        ticks: {
+                            beginAtZero: true,
+                            min: 0,
+                        }
+                    }],
+                    xAxes: [{
+                            gridLines: {
+                                color: "#aaaaaa" ,drawOnChartArea: false
+                            },
+                            ticks: {
+                                maxTicksLimit: 10,
+                            }
+                        }],
+                },
+            }
+        });
+
+        //AJAX FOR FITBIT------------------------------------------------------------------------------------------
+
+        $(document).ready(function(){
+           $(".ajax-btn").click(function(){
+                var name = $(this).attr('name');
+                var Chart1Title = $("#Chart1Title").html()
+                var Chart2Title = $("#Chart2Title").html()
+                if(name != Chart1Title && name != Chart2Title)
+                {
+                $.ajax({
+                    url : '/ajax',
+                    type : 'get',
+                    data : {
+                        devname : $(this).attr('name'),
+                    },
+                    success: function(response){
+                        
+                        if (chartselect == 0)
+                        {   $("#Chart1Title").html(response.name)
+                            chartselect = 1
+                            myChart1.destroy();
+                            var ctx2 = document.getElementById('myChart1').getContext('2d');
+                            myChart1 = new Chart(ctx2, {
+                                type: 'bar',
+                                data: {
+                                    labels: response.step_dates,
+                                    datasets: [{
+                                        label: response.name,
+                                        data: response.step_values,
+                                        backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                                        borderColor: 'rgba(255, 255, 255, 1)',
+                                        borderWidth: 1,
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                            gridLines: { color: "#aaaaaa",drawOnChartArea: false },
+                                            display: true,
+                                            ticks: {
+                                                beginAtZero: true,
+                                                min: 0,
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            gridLines: {
+                                                color: "#aaaaaa" ,drawOnChartArea: false
+                                            },
+                                            ticks: {
+                                                maxTicksLimit: 10,
+                                            }
+                                        }],
+                                    },
+                                }
+                            });
+                        }
+                        else{
+                            $("#Chart2Title").html(response.name)
+                            chartselect = 0
+                            myChart.destroy();
+                            var ctx = document.getElementById('myChart').getContext('2d');
+                            myChart = new Chart(ctx, {
+                                type: 'bar',
+                                data: {
+                                    labels: response.step_dates,
+                                    datasets: [{
+                                        label: response.name,
+                                        data: response.step_values,
+                                        backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                                        borderColor: 'rgba(255, 255, 255, 1)',
+                                        borderWidth: 1,
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                            gridLines: { color: "#aaaaaa",drawOnChartArea: false },
+                                            display: true,
+                                            ticks: {
+                                                beginAtZero: true,
+                                                min: 0,
+                                            }
+                                        }],
+                                        xAxes: [{
+                                            gridLines: {
+                                                color: "#aaaaaa" ,drawOnChartArea: false
+                                            },
+                                            ticks: {
+                                                maxTicksLimit: 10,
+                                            }
+                                        }],
+                                    },
+                                }
+                            });
+                        }
+                        
+                    }
+                });}
+            });
+        });
+
+        $(document).ready(function(){
+           $(".ajax-btn2").click(function(){
+                var name = $(this).attr('name');
+                var Chart1Title = $("#OuraChart1Title").html()
+                var Chart2Title = $("#OuraChart2Title").html()
+                if(name != Chart1Title && name != Chart2Title)
+                {
+                    if(name == "Steps")
+                    {
+                        ouradata1 = {{ oura_steps_values|safe}};
+                        ouradata2 = {{ oura_steps_dates|safe}};
+                    }
+                    else if(name == "Calories")
+                    {
+                        ouradata1 = {{ oura_calories_values|safe}};
+                        ouradata2 = {{ oura_calories_dates|safe}};
+                    }
+                    else if(name == "Minutes Asleep")
+                    {
+                        ouradata1 = {{ oura_sleep_values|safe}};
+                        ouradata2 = {{ oura_sleep_dates|safe}};
+                    }
+                    else if(name == "MET")
+                    {
+                        ouradata1 = {{ oura_met_values|safe}};
+                        ouradata2 = {{ oura_met_dates|safe}};
+                    }
+                    else
+                    {
+                        ouradata1 = {{ oura_hr_values|safe}};
+                        ouradata2 = {{ oura_hr_dates|safe}};
+                    }
+
+                    if (chartselect == 0)
+                    {   $("#OuraChart1Title").html(name)
+                        chartselect = 1
+                        myChart3.destroy();
+                        var ctx3 = document.getElementById('OuramyChart1').getContext('2d');
+                        myChart3 = new Chart(ctx3, {
+                            type: 'bar',
+                            data: {
+                                labels: ouradata2,
+                                datasets: [{
+                                    label: name,
+                                    data: ouradata1,
+                                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                                    borderColor: 'rgba(255, 255, 255, 1)',
+                                    borderWidth: 1,
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        gridLines: { color: "#aaaaaa",drawOnChartArea: false },
+                                        display: true,
+                                        ticks: {
+                                            beginAtZero: true,
+                                            min: 0,
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        gridLines: {
+                                            color: "#aaaaaa" ,drawOnChartArea: false
+                                        },
+                                        ticks: {
+                                            maxTicksLimit: 10,
+                                        }
+                                    }],
+                                },
+                            }
+                        });
+                    }
+                    else{
+                        $("#OuraChart2Title").html(name)
+                        chartselect = 0
+                        myChart4.destroy();
+                        var ctx4 = document.getElementById('OuramyChart2').getContext('2d');
+                        myChart4 = new Chart(ctx4, {
+                            type: 'bar',
+                            data: {
+                                labels: ouradata2,
+                                datasets: [{
+                                    label: name,
+                                    data: ouradata1,
+                                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                                    borderColor: 'rgba(255, 255, 255, 1)',
+                                    borderWidth: 1,
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        gridLines: { color: "#aaaaaa" ,drawOnChartArea: false},
+                                        display: true,
+                                        ticks: {
+                                            beginAtZero: true,
+                                            min: 0,
+                                        }
+                                    }],
+                                    xAxes: [{
+                                        gridLines: {
+                                            color: "#aaaaaa" ,drawOnChartArea: false
+                                        },
+                                        ticks: {
+                                            maxTicksLimit: 10,
+                                        }
+                                    }],
+                                },
+                            }
+                        });
+                    }
+
+                }
+                
+            });
+        });
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+    </script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src='{% static "plugins/bower_components/chartist/dist/chartist.min.js" %}'></script>
+    <script src='{% static "plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js" %}'></script>
+    <script src='{% static "js/pages/dashboards/dashboard1.js" %}'></script>
+</body>
+
+</html>

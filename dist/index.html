@@ -2,21 +2,24 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Responsive Signup/Login form</title>
+  <title>Rhenix Data</title>
+  <link rel="icon" type="image/x-icon" href="F:\SmartHubProject\Smart-HUB\dist\rhenix logo blue.jpg">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:300,600" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
+<!-- <div class="col-md-6 d-none d-md-block">
+   <img src="giphy-downsized-large.gif" class="img-fluid" style="min-height:100%;" />
+   </div> -->
 <div class="container">
    <section id="formHolder">
-
       <div class="row">
 
          <!-- Brand Box -->
          <div class="col-sm-6 brand">
-            <a href="#" class="logo">MR <span>.</span></a>
+            <img src ="F:\SmartHubProject\Smart-HUB\dist\rhenix logo blue.jpg", width = "100px", height = "100px", style="border-radius: 10px 50px;">
 
             <div class="heading">
                <h2>Rhenix</h2>
@@ -25,7 +28,7 @@
 
             <div class="success-msg">
                <p>Great! You are one of our members now</p>
-               <a href="#" class="profile">Your Profile</a>
+               <a href= F:\SmartHubProject\Smart-HUB\dist\HealthDashboard.html class="profile">Your Profile</a>
             </div>
          </div>
 
@@ -34,28 +37,31 @@
          <div class="col-sm-6 form">
 
             <!-- Login Form -->
-            <div class="login form-peice switched">
+            <div class="login form-peice">
                <form class="login-form" action="#" method="post">
                   <div class="form-group">
-                     <label for="loginemail">Email Adderss</label>
+                     <label for="loginemail">Email Address</label>
                      <input type="email" name="loginemail" id="loginemail" required>
                   </div>
 
                   <div class="form-group">
-                     <label for="loginPassword">Password</label>
+                     <label for="loginPassword">Code</label>
                      <input type="password" name="loginPassword" id="loginPassword" required>
                   </div>
 
                   <div class="CTA">
-                     <input type="submit" value="Login">
-                     <a href="#" class="switch">I'm New</a>
+
+                  <input type="submit" onclick="location.href='file:///F:/SmartHubProject/Smart-HUB/dist/HealthDashboard.html';" value="Login" id="submit"> 
+
+                     <!-- <input type="submit" value="Signup Now" id="submit"> -->
+                     <!-- <a href="#" class="switch">I'm New</a> -->
                   </div>
                </form>
             </div><!-- End Login Form -->
 
 
             <!-- Signup Form -->
-            <div class="signup form-peice">
+            <!-- <div class="signup form-peice">
                <form class="signup-form" action="#" method="post">
 
                   <div class="form-group">
@@ -65,7 +71,7 @@
                   </div>
 
                   <div class="form-group">
-                     <label for="email">Email Adderss</label>
+                     <label for="email">Email Address</label>
                      <input type="email" name="emailAdress" id="email" class="email">
                      <span class="error"></span>
                   </div>
@@ -92,7 +98,8 @@
                      <a href="#" class="switch">I have an account</a>
                   </div>
                </form>
-            </div><!-- End Signup Form -->
+            </div> -->
+            <!-- End Signup Form -->
          </div>
       </div>
 
@@ -101,7 +108,7 @@
 
    <footer>
       <p>
-         Form made by: <a href="https://github.com/Elizah550" target="_blank">Pavan Kumar</a>
+         All rights reserved by <a href="https://rhenix.org" target="_blank">Rhenix</a>
       </p>
    </footer>
 

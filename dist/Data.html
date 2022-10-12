@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>RhenixDataconnect</title>
+  <link rel="icon" type="image/x-icon" href="F:\SmartHubProject\Smart-HUB\dist\rhenix logo blue.jpg">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons'>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/vuetify@1.1.10/dist/vuetify.min.css'>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <v-app id="inspire">
+    <v-data-table
+      v-model="selected"
+      :headers="headers"
+      :items="filteredDesserts"
+      :pagination.sync="pagination"
+      select-all
+      item-key="name"
+      class="elevation-1"
+    >
+      <template slot="headers" slot-scope="props">
+        <tr>
+          <th>
+            <v-checkbox
+              :input-value="props.all"
+              :indeterminate="props.indeterminate"
+              primary
+              hide-details
+              @click.native="toggleAll"
+            ></v-checkbox>
+          </th>
+          <th
+            v-for="header in props.headers"
+            :key="header.text"
+            :class="['column sortable', pagination.descending ? 'desc' : 'asc', header.value === pagination.sortBy ? 'active' : '']"
+            @click="changeSort(header.value)"
+          >
+            <v-icon small>arrow_upward</v-icon>
+            {{ header.text }}
+          </th>
+        </tr>
+        <tr class="grey lighten-3">
+          <th>
+            <v-icon>filter_list</v-icon>
+          </th>
+          <th
+            v-for="header in props.headers"
+            :key="header.text"
+          >
+            <div v-if="filters.hasOwnProperty(header.value)">
+              <v-select flat hide-details small multiple clearable :items="columnValueList(header.value)" v-model="filters[header.value]">
+                
+              </v-select>
+              
+            </div>
+          </th>
+        </tr>
+      </template>
+      <template slot="items" slot-scope="props">
+        <tr :active="props.selected" @click="props.selected = !props.selected">
+          <td>
+            <v-checkbox
+              :input-value="props.selected"
+              primary
+              hide-details
+            ></v-checkbox>
+          </td>
+          <td>{{ props.item.name }}</td>
+          <td class="text-xs-right">{{ props.item.Registered }}</td>
+          <td class="text-xs-right">{{ props.item.Registered }}</td>
+          <!-- <td class="text-xs-right">{{ props.item.carbs }}</td> -->
+          <!-- <td class="text-xs-right">{{ props.item.protein }}</td> -->
+          <td class="text-xs-right">{{ props.item.Download }}</td>
+        </tr>
+      </template>
+    </v-data-table>
+  </v-app>
+</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/babel-polyfill/dist/polyfill.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/vuetify@1.1.10/dist/vuetify.min.js'>
+
+</script>
+<script>
+  new Vue({
+  el: '#app',
+  data: () => ({
+    pagination: {
+      sortBy: 'name' },
+
+    selected: [],
+    headers: [
+    {
+      text: 'All Users',
+      align: 'left',
+      value: 'name' },
+
+    { text: 'Registered', 
+      value: 'Registered' 
+    },
+    { text: 'Data Active', value: 'Registered' },
+    // { text: 'Carbs (g)', value: 'carbs' },
+    // { text: 'Protein (g)', value: 'protein' },
+    { text: 'Data Download', value: 'Download' }],
+
+    filters: {
+      Registered: [],
+      carbs: [],
+      Download: [] },
+
+    desserts: [
+    {
+      value: false,
+      name: 'Pavan Kumar',
+      Registered: 20210904,
+      carbs: 24,
+      protein: 4.0,
+      Download: 'Year' },
+    {
+      value: false,
+      name: 'Kumar',
+      Registered: 20210904,
+     
+      carbs: 24,
+      protein: 4.0,
+      Download: 'Month' },
+    
+    {
+      value: false,
+      name: 'Gray Man',
+      Registered: 20210903,
+    
+      carbs: 49,
+      protein: 3.9,
+      Download: 'Week' },
+    {
+      value: false,
+      name: 'Vijay',
+      Registered: 20210902,
+
+      carbs: 98,
+      protein: 0,
+      Download: '2%' },
+    {
+      value: false,
+      name: 'Gray',
+      Registered: 20210903,
+ 
+      carbs: 49,
+      protein: 3.9,
+      Download: '16%' },
+    {
+      value: false,
+      name: 'Viram',
+      Registered: 20210902,
+  
+      carbs: 98,
+      protein: 0,
+      Download: '2%' },
+
+    {
+      value: false,
+      name: 'Abhishek',
+      Registered: 20210901,
+
+      carbs: 65,
+   
+      Download: '6%' }] 
+    
+    
+    }),
+
+
+
+  computed: {
+    filteredDesserts() {
+      return this.desserts.filter(d => {
+        return Object.keys(this.filters).every(f => {
+          return this.filters[f].length < 1 || this.filters[f].includes(d[f]);
+        });
+      });
+    } },
+
+
+  methods: {
+    toggleAll() {
+      if (this.selected.length) this.selected = [];else
+      this.selected = this.desserts.slice();
+    },
+    changeSort(column) {
+      if (this.pagination.sortBy === column) {
+        this.pagination.descending = !this.pagination.descending;
+      } else {
+        this.pagination.sortBy = column;
+        this.pagination.descending = false;
+      }
+    },
+    columnValueList(val) {
+      return this.desserts.map(d => d[val]);
+    } } });
+</script>
+
+</body>
+</html>

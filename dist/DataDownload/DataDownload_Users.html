@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Rhenix Data Download</title>
+  <link rel="icon" type="image/x-icon" href="F:\SmartHubProject\Smart-HUB\dist\rhenix logo blue.jpg">
+  <link rel='stylesheet' href='https://www.unum.com/styles/unum.website/styles.min.css?v=20190131'>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/themes/dark.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+  <section class="gic__results">
+    <div class="gic__results-wrapper">
+      <div id="navigation-container"> 
+        <img src="F:\SmartHubProject\Smart-HUB\dist\rhenix logo blue.jpg", width="100px", height="100px">
+      </div>
+      <br> <br> 
+      <h3>Your data</h3> <br> 
+      <h3>at one place</h3>
+    </div>
+    
+    </div>
+  </section>
+  <div class="gic">
+    <form class="gic__form">
+      <div class="gic__form-item">
+        <label class="gic__form-label" for="age">Wearables data</label>
+        <select class="gic__input" id="age">
+          <option hidden disabled selected value>Weekly</option>
+          <option value="18-19">Pavan</option>
+          <option value="20-29">Abhishek</option>
+          <option value="30-39">Vijay</option>
+          <option value="40-49">Priyanka</option>
+        </select>
+      </div>
+      <div>
+        <label class="gic__form-label" for="age">Select date range</label>
+        <input type="text" id="rangeDate" placeholder="Please select Date Range" data-input>
+      </div>
+      <div>
+        <!-- <button type="button">Download</button> -->
+        <br><a href="#" class="download" style="color: black;"><i class="fa fa-download"></i> <b>Download</b></a>
+      </div>
+      
+      <!-- <div class="gic__form-item">
+        <label class="gic__form-label" for="outs-expenses"
+               >How much do you estimate you have in outstanding expenses?</label
+          >
+        <p class="gic__form-helper">
+          Please estimate. Consider items like mortgage, car loans, and credit card debt.
+        </p>
+        <span class="gic__form-money-input">
+          <input
+                 class="gic__input"
+                 inputmode="numeric"
+                 id="outs-expenses"
+                 maxlength="15"
+                 placeholder="0.00"
+                 />
+        </span>
+      </div> -->
+      <!-- <div class="gic__form-item">
+        <label class="gic__form-label" for="saving-est">What do you estimate you have for savings?</label>
+        <p class="gic__form-helper">Please estimate.</p>
+        <span class="gic__form-money-input">
+          <input
+                 class="gic__input"
+                 inputmode="numeric"
+                 id="saving-est"
+                 maxlength="15"
+                 placeholder="0.00"
+                 />
+        </span>
+      </div> -->
+      <!-- <div class="gic__form-item">
+        <fieldset>
+          <legend></legend>
+          <label class="gic__form-label">Do you currently have any Life Insurance?</label>
+          <div class="gic__radio-wrapper">
+            <div class="gic__input-radio-option">
+              <input class="gic__input" type="radio" name="life-ins" id="life-ins-yes" value="yes" />
+              <label class="gic__form-label gic__form-radio-label" for="life-ins-yes">Yes</label>
+            </div>
+            <div class="gic__input-radio-option">
+              <input class="gic__input" type="radio" name="life-ins" id="life-ins-no" value="no" />
+              <label class="gic__form-label gic__form-radio-label" for="life-ins-no">No</label>
+            </div>
+          </div>
+        </fieldset>
+      </div> -->
+      <!-- <div class="gic__form-item hidden" id="currentLifeIns">
+        <label class="gic__form-label" for="cur-life-ins" aria-hidden="true"
+               >Approximately how much Life Insurance do you have?</label
+          >
+        <span class="gic__form-money-input" aria-hidden="true">
+          <input
+                 class="gic__input"
+                 inputmode="numeric"
+                 id="cur-life-ins"
+                 maxlength="15"
+                 placeholder="0.00"
+                 aria-hidden="true"
+                 />
+        </span>
+      </div> -->
+      <!-- <div class="gic__form-item">
+        <label class="gic__form-label" for="ann-income">What is your annual income?</label>
+        <span class="gic__form-money-input">
+          <input
+                 class="gic__input"
+                 inputmode="numeric"
+                 id="ann-income"
+                 maxlength="15"
+                 placeholder="0.00"
+                 />
+        </span>
+      </div> -->
+      <!-- <div class="gic__form-item">
+        <fieldset>
+          <legend></legend>
+          <label class="gic__form-label">Are you married?</label>
+          <div class="gic__radio-wrapper">
+            <div class="gic__input-radio-option">
+              <input
+                     class="gic__input"
+                     type="radio"
+                     name="mar-status"
+                     id="mar-status-yes"
+                     value="yes"
+                     />
+              <label class="gic__form-label gic__form-radio-label" for="mar-status-yes">Yes</label>
+            </div>
+            <div class="gic__input-radio-option">
+              <input
+                     class="gic__input"
+                     type="radio"
+                     name="mar-status"
+                     id="mar-status-no"
+                     value="no"
+                     />
+              <label class="gic__form-label gic__form-radio-label" for="mar-status-no">No</label>
+            </div>
+          </div>
+        </fieldset>
+      </div> -->
+      <!-- <div class="gic__form-item">
+        <label class="gic__form-label" for="num-children"
+               >If you have children under age 18, how many children do you have?</label
+          >
+        <p class="gic__form-helper">Enter 0 in the box if this does not apply to you.</p>
+        <input class="gic__input" inputmode="numeric" id="num-children" maxlength="2" placeholder="0" />
+      </div> -->
+      <!-- <div class="gic__form-item gic__reset">
+        <div class="gic__reset-action">Reset</div>
+      </div> -->
+    </form>
+  </div>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--  Flatpickr  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.js"></script>
+</body>
+<!-- partial -->
+  <script>
+  $("#basicDate").flatpickr({
+    enableTime: true,
+    dateFormat: "F, d Y H:i"
+});
+
+$("#rangeDate").flatpickr({
+    mode: 'range',
+    dateFormat: "Y-m-d"
+});
+
+$(".resetDate").flatpickr({
+    wrap: true,
+    weekNumbers: true,
+});
+const DOM = {
+  submitBtn: '.submit-button',
+  submitPending: '.submit-button__pending',
+  submitText: '.submit-button__text',
+  submitLoaded: '.submit-button__loaded' };
+
+
+//find exact children of the button
+const findChildren = elem => {
+
+  return [
+  elem.querySelector(DOM.submitPending),
+  elem.querySelector(DOM.submitText),
+  elem.querySelector(DOM.submitLoaded)];
+
+
+};
+
+//find node parent function
+const findParent = (elem, referenceElem) => {
+
+  const className = referenceElem.slice(0, referenceElem.length);
+
+  let ind = true;
+
+  while (ind) {
+
+    if (elem.classList.contains(className)) {
+      break;
+    } else {
+      elem = elem.parentNode;
+    }
+
+  }
+
+  return elem;
+
+};
+
+//onclick function for buttons - active state
+document.querySelectorAll(DOM.submitBtn).forEach(elem => {
+
+  elem.addEventListener('click', event => {
+
+    let clickedElem = findParent(event.target, 'submit-button');
+
+    const innerChildren = findChildren(clickedElem);
+
+    //adding active class to the clicked elem
+    if (!clickedElem.classList.contains('js-active')) {
+
+      clickedElem.classList.add('js-active');
+
+      innerChildren.forEach(elem => {
+        elem.classList.add('js-active');
+      });
+
+    } else {
+
+      //!!!just for pen toggling part!!!
+      clickedElem.classList.remove('js-active');
+
+      innerChildren.forEach(elem => {
+        elem.classList.remove('js-active');
+      });
+
+    }
+
+  });
+
+});
+  </script>
+
+</body>
+</html>
